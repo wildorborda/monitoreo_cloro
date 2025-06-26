@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Control de Visitas a Reservorios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- jsPDF y autoTable para exportar PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+<body class="bg-light">
+  <div class="container mt-4">
+    <h2 class="mb-4 text-center">Control de Visitas a Reservorios</h2>
+    <table class="table table-bordered table-striped" id="tablaVisitas">
+      <thead class="table-dark">
+        <tr>
+          <th>N°</th>
+          <th>Código C.P.</th>
+          <th>Nombre C.P.</th>
+          <th>Nombre del Sistema</th>
+          <th>PI / FED</th>
+          <th>¿Visitado?</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr>
+      <td>1</td>
+      <td>0807040073</td>
+      <td>JAPURO</td>
+      <td>JASS JAPURO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>2</td>
+      <td>0807040030</td>
+      <td>SAYHUA</td>
+      <td>JASS SAYHUA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>3</td>
+      <td>0807049904</td>
+      <td>CRUZAHIWA BAJA</td>
+      <td>JASS CRUZ SAYHUA BAJO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>4</td>
+      <td>0807040103</td>
+      <td>JAPURO</td>
+      <td>JASS JAPURO CCASA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>5</td>
+      <td>0807040018</td>
+      <td>AMPO</td>
+      <td>JASS AMPO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>6</td>
+      <td>0807040019</td>
+      <td>CHOLCCO</td>
+      <td>JASS SACCANCA CHOLCCO HUAYCCO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>7</td>
+      <td>0807049901</td>
+      <td>URINSAYA</td>
+      <td>JASS URINSAYA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>8</td>
+      <td>0807049901</td>
+      <td>URINSAYA</td>
+      <td>JASS URINSAYA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>9</td>
+      <td>0807040121</td>
+      <td>CHACARAYA</td>
+      <td>JASS CHACARAY</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>10</td>
+      <td>0807040001</td>
+      <td>COLQUEMARCA</td>
+      <td>JASS</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>11</td>
+      <td>0807040028</td>
+      <td>CCOYANI</td>
+      <td>JASS CCOYANI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>12</td>
+      <td>0807040012</td>
+      <td>TOTORANI</td>
+      <td>JASS TOTORANI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>13</td>
+      <td>0807040023</td>
+      <td>HUASCJA</td>
+      <td>JASS HUASCJA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>14</td>
+      <td>0807040094</td>
+      <td>ALTO HUANCANE</td>
+      <td>JASS ALTO HUANCANE</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>15</td>
+      <td>0807040011</td>
+      <td>ARMIRI</td>
+      <td>JASS ARMIRI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>16</td>
+      <td>0807040007</td>
+      <td>PARCOBAMBA</td>
+      <td>JASS PARCOBAMBA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>17</td>
+      <td>0807040044</td>
+      <td>SILLARUMI</td>
+      <td>JASS CALLEJON COTABAMBAS</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>18</td>
+      <td>0807040041</td>
+      <td>CALLEJONPATA TAMBOBAMBA</td>
+      <td>JASS CALLEJON COTABAMBAS</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>19</td>
+      <td>0807040050</td>
+      <td>CHAUPILOMA</td>
+      <td>JASS CHAUPILOMA ANTATACCA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>20</td>
+      <td>0807040097</td>
+      <td>TUMAPARADA</td>
+      <td>JASS TOMAPARADA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>21</td>
+      <td>0807049913</td>
+      <td>DOBLE CANCHA</td>
+      <td>TIENDACHAYOQ Y DOBLE CANCHA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>22</td>
+      <td>0807040075</td>
+      <td>PFOCCORAYPATA</td>
+      <td>JAS HUASCJA URINSAYA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>23</td>
+      <td>0807040020</td>
+      <td>UNUPULLAPATA</td>
+      <td>JASS UNUPULLA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>24</td>
+      <td>0807040014</td>
+      <td>CCANTUTA</td>
+      <td>JASS CCANTUTA HUALLHUANI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>25</td>
+      <td>0807040013</td>
+      <td>HUACCOTTO</td>
+      <td>JASS HUACCOTO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>26</td>
+      <td>0807040010</td>
+      <td>CCOCHAPATA</td>
+      <td>JASS</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>27</td>
+      <td>0807040046</td>
+      <td>SIHUINCHA</td>
+      <td>JASS SIWINCHA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>28</td>
+      <td>0807040122</td>
+      <td>ÑAUPA JAPO</td>
+      <td>JASS ÑAUPA JAPO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>29</td>
+      <td>0807040028</td>
+      <td>CCOYANI</td>
+      <td>JASS CCOYANI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>30</td>
+      <td>0807040002</td>
+      <td>LACALACA</td>
+      <td>JASS LACCA LACCA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>31</td>
+      <td>0807040026</td>
+      <td>AHUICHANTA</td>
+      <td>JASS AHUICHANTA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>32</td>
+      <td>0807040074</td>
+      <td>TINGUNAPATA</td>
+      <td>JASS TINGUNAPATA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>33</td>
+      <td>0807040100</td>
+      <td>PACCHANI</td>
+      <td>JASS FACCHANI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>34</td>
+      <td>0807040101</td>
+      <td>LLAULLINCO</td>
+      <td>JASS LLAULLINCO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>35</td>
+      <td>0807040009</td>
+      <td>URUBAMBA</td>
+      <td>JASS URUBAMBA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>36</td>
+      <td>0807040003</td>
+      <td>YANQUE</td>
+      <td>JASS YANQUE</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>37</td>
+      <td>0807049907</td>
+      <td>HUISURAY BAJO</td>
+      <td>JASS HUISURAY BAJO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>38</td>
+      <td>0807040023</td>
+      <td>HUASCJA</td>
+      <td>JASS HUASCJA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>39</td>
+      <td>0807040005</td>
+      <td>IÑAPACO</td>
+      <td>JASS IÑAPACCO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>40</td>
+      <td>0807049902</td>
+      <td>PAYCAMA</td>
+      <td>JASS PAYCAMA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>41</td>
+      <td>0807040049</td>
+      <td>ANTATACCA</td>
+      <td>JASS ANTATACCA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>42</td>
+      <td>0807040132</td>
+      <td>SAN PEDRO</td>
+      <td>JASS TOROMANYA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>43</td>
+      <td>0807040066</td>
+      <td>PATACANCHA</td>
+      <td>JASS UNUPULLA</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>44</td>
+      <td>0807040054</td>
+      <td>QUILLARUMI</td>
+      <td>JASS QUILLARUMI</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>45</td>
+      <td>0807040008</td>
+      <td>CHARAMURAY</td>
+      <td>JASS CHARAMURAY</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>46</td>
+      <td>0807049905</td>
+      <td>HUANCANE</td>
+      <td>JASS ALTO HUANCANE</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>47</td>
+      <td>0807049908</td>
+      <td>HUISURAY BAJO - PUCARA</td>
+      <td>JASS HUISURAY BAJO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>48</td>
+      <td>0807040058</td>
+      <td>HUARACCO</td>
+      <td>HUARACCO CENTRO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+<tr>
+      <td>49</td>
+      <td>0807040140</td>
+      <td>LLONCCAYA</td>
+      <td>JASS JUAN VELASCO ALVARADO</td>
+      <td><input type="text" class="form-control"></td>
+      <td>
+        <select class="form-select visitado" onchange="actualizarContador()">
+          <option value="">Seleccionar</option>
+          <option value="Sí">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </td>
+    </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="col-md-6"><strong>Total Visitados:</strong> <span id="visitados">0</span></div>
+      <div class="col-md-6"><strong>Faltan Visitar:</strong> <span id="faltan">0</span></div>
+    </div>
+  </div>
+  <div class="mb-3 text-center">
+  <button class="btn btn-success me-2" onclick="exportarExcel()">Exportar a Excel</button>
+  <button class="btn btn-danger" onclick="exportarPDF()">Exportar a PDF</button>
+</div>
+
+
+  <script>
+    function actualizarContador() {
+      const selects = document.querySelectorAll(".visitado");
+      let visitados = 0;
+      let total = 0;
+      selects.forEach(sel => {
+        const val = sel.value.trim();
+        if (val === "Sí") visitados++;
+        if (val === "Sí" || val === "No") total++;
+      });
+      document.getElementById("visitados").innerText = visitados;
+      document.getElementById("faltan").innerText = total - visitados;
+    }
+  </script>
+</body>
+</html>
